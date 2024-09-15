@@ -1,40 +1,21 @@
 ---
-title: "Discord"
-subtitle: "A metadata analysis of one discord server"
+title: "Discord Metadata Analysis"
+subtitle: "How much information can you squeeze out of very limited data?"
 format: 
   html:
     code-fold: true
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
 ```{r}
 #| echo: false
 #| warning: false
-#| 
-library(shiny)
-library(bslib)
+
 library(tidyverse)
-library(glue)
-library(ggridges)
 library(hms)
+library(gt)
 
-setwd("C:/Users/Tom/Documents/discoRd")
-
-# Setup -------------------------------------------------------------------
+setwd("C:/Users/Tom/Documents/GitHub/tilewin.github.io/")
 
 df <- read_csv(
     file = "./data/logs.csv", 
@@ -45,16 +26,49 @@ df <- read_csv(
     dttm = date,
     time = as_hms(date),
     date = as.Date(dttm)
-  )
+  ) |>
+  filter(date > ymd("2024-07-10")) |>
+  select(
+    user = content,
+    dt = date, 
+    ts = time
+  )  
 
 theme_set(theme_bw(base_size = 16))
+```
 
+My friends and I have a reasonably busy Discord server. I created a [bot](https://github.com/tilewin/discord-voice-notifier) to post someone's username when they join a voice channel, initially as a way to let people get a push notification that people were online. However, I got to wondering—how much information is contained in a two-column dataset of username and timestamp?
+
+### The data
+
+First, let's have a look at the data. We have username, date, and time—each row is essentially a datetime when a user joined a voice channel.
+
+```{r}
+df |>
+  filter(user %in% c("tnkrbll", "dizzypudding", "willoflower")) |>
+  group_by(user) |>
+  arrange(dt, ts) |>
+  slice_head(n = 2) |>
+  ungroup() |>
+  gt(rowname_col = "user")
+```
+
+### The basics
+
+Now we have this data, what are the most basic questions we might want to ask. Counting is probably the most basic analysis, but it's always a great place to start making sense of your data. Counting questions are questions like:
+
+-   What are the busiest days?
+-   How many days did each user join?
+
+```{r}
+#| label: fig-datecount
+#| fig-cap: "Distinct users joining per day"
+#| warning: false
 
 df |>
-  select(content, date) |> 
+  select(user, dt) |> 
   distinct() |>
-  ggplot(aes(x = date)) + geom_bar()
-
+  ggplot(aes(x = dt)) + geom_bar()
 ```
 
 @fig-timeline is the figure name
@@ -66,5 +80,7 @@ df |>
 #| warning: false
 
 df |>
-  ggplot(aes(x = time)) + geom_density()
+  ggplot(aes(x = ts)) + geom_density()
 ```
+
+### Counting in two dimensions

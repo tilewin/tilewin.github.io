@@ -30,30 +30,16 @@
   {
     "objectID": "discord.html",
     "href": "discord.html",
-    "title": "Discord",
+    "title": "Discord Metadata Analysis",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "discord.html#quarto",
-    "href": "discord.html#quarto",
-    "title": "Discord",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "discord.html#running-code",
-    "href": "discord.html#running-code",
-    "title": "Discord",
-    "section": "Running Code",
-    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n\n\n\n\n\n\n\nFigure 1 is the figure name\n\n\n\n\n\n\n\n\nFigure 1: Joining time"
+    "text": "My friends and I have a reasonably busy Discord server. I created a bot to post someone’s username when they join a voice channel, initially as a way to let people get a push notification that people were online. However, I got to wondering—how much information is contained in a two-column dataset of username and timestamp?\n\nThe data\nFirst, let’s have a look at the data. We have username, date, and time—each row is essentially a datetime when a user joined a voice channel.\n\n\nCode\ndf |&gt;\n  filter(user %in% c(\"tnkrbll\", \"dizzypudding\", \"willoflower\")) |&gt;\n  group_by(user) |&gt;\n  arrange(dt, ts) |&gt;\n  slice_head(n = 2) |&gt;\n  ungroup() |&gt;\n  gt(rowname_col = \"user\")\n\n\n\n\n\n\n\n\n\ndt\nts\n\n\n\n\ndizzypudding\n2024-07-11\n19:26:17.754\n\n\ndizzypudding\n2024-07-12\n14:43:10.308\n\n\ntnkrbll\n2024-07-11\n17:45:27.640\n\n\ntnkrbll\n2024-07-11\n19:02:59.316\n\n\nwilloflower\n2024-07-12\n19:53:17.370\n\n\nwilloflower\n2024-07-13\n20:53:28.178\n\n\n\n\n\n\n\n\n\nThe basics\nNow we have this data, what are the most basic questions we might want to ask. Counting is probably the most basic analysis, but it’s always a great place to start making sense of your data. Counting questions are questions like:\n\nWhat are the busiest days?\nHow many days did each user join?\n\n\n\nCode\ndf |&gt;\n  select(user, dt) |&gt; \n  distinct() |&gt;\n  ggplot(aes(x = dt)) + geom_bar()\n\n\n\n\n\n\n\n\nFigure 1: Distinct users joining per day\n\n\n\n\n\nFigure 2 is the figure name\n\n\n\n\n\n\n\n\nFigure 2: Joining time\n\n\n\n\n\n\n\nCounting in two dimensions"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Tom Lewin",
     "section": "",
-    "text": "I’m a data scientist\nLikes:\n\nEverything is a linear model\nGhouls\n\nDislikes:"
+    "text": "I’m a data scientist\nLikes:\n\nEverything is a linear model\nGhouls\n\nDislikes:\n\nPeoples’ knees"
   },
   {
     "objectID": "posts/curriculum/curriculum.html",

@@ -3,3 +3,6 @@
 !docs/
 !posts/
 !*.qmd
+.Rproj.user
+
+/.quarto/
