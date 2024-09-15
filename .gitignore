@@ -1,2 +1,5 @@
-/.quarto/
-/_site/
+/*
+!.gitignore
+!docs/
+!posts/
+!*.qmd

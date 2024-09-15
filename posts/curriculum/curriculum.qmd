@@ -1,0 +1,8 @@
+---
+title: "Data science curriculum"
+description: "What are the core things we need to know?"
+---
+
+Minimally sufficient pandas \[link\] was a great resource for something with a lot of options and edge cases, that would get you pretty far
+
+What's the equivalent minimally sufficient DS curriculum?

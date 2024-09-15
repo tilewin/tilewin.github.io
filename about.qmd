@@ -1,0 +1,23 @@
+---
+title: "Tom Lewin"
+about:
+  template: solana
+  image: profile.jpg
+  image-shape: round
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/tilewin
+    - icon: steam
+      text: Steam
+      href: https://steamcommunity.com/id/tnkrbll/
+---
+
+I'm a data scientist
+
+Likes:
+
+-   Everything is a linear model
+-   Ghouls
+
+Dislikes:
