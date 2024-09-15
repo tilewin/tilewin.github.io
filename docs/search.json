@@ -1,17 +1,31 @@
 [
   {
-    "objectID": "spotifyr.html",
-    "href": "spotifyr.html",
-    "title": "Spotifyr",
+    "objectID": "writing.html",
+    "href": "writing.html",
+    "title": "Writing",
     "section": "",
-    "text": "test"
+    "text": "Data science curriculum\n\n\n\n\n\nWhat are the core things we need to know?\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Test\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nTesting"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Home",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "index.html#recommended-reading",
+    "href": "index.html#recommended-reading",
+    "title": "Home",
+    "section": "Recommended reading",
+    "text": "Recommended reading"
   },
   {
     "objectID": "discord.html",
@@ -40,5 +54,19 @@
     "title": "Tom Lewin",
     "section": "",
     "text": "I’m a data scientist\nLikes:\n\nEverything is a linear model\nGhouls\n\nDislikes:"
+  },
+  {
+    "objectID": "posts/curriculum/curriculum.html",
+    "href": "posts/curriculum/curriculum.html",
+    "title": "Data science curriculum",
+    "section": "",
+    "text": "Minimally sufficient pandas [link] was a great resource for something with a lot of options and edge cases, that would get you pretty far\nWhat’s the equivalent minimally sufficient DS curriculum?"
+  },
+  {
+    "objectID": "spotifyr.html",
+    "href": "spotifyr.html",
+    "title": "Spotifyr",
+    "section": "",
+    "text": "test"
   }
 ]
